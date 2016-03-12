@@ -78,7 +78,7 @@
                         <ul>
                             <li>Omdat je meestal voortbouwt bovenop bestaande images zoals 'ubuntu:14.04', hoef je slechts zelden een snapshot te maken van het hele OS.</li> 
                             <li>Je hoeft alleen een snapshot te maken van je veranderingen: dit gebeurt automatisch.</li>
-                            <li>Deze mogelijkheid om het OS in een gemeenschappelijk image te stoppen, maak het deployen op andere hosts eenvoudig en sneller.</li>
+                            <li>Deze mogelijkheid om het OS in een gemeenschappelijk image te stoppen maakt het deployen op andere hosts eenvoudig en sneller.</li>
                         </ul>
                     </section>
                     <section>
@@ -96,7 +96,7 @@
                     </section>
                     <section>
                         <h2>VM's vs containers</h2>
-                        <h3>4. Aan Docker images kun je versies toekennen.</h3>
+                        <h3>4. Versioning is mogelijk met Docker images.</h3>
                         <pre><code data-trim>
 $ docker commit -m "Added more restrictive pg_hba.conf." \ 
 -a "Sander Smits" 0b2616b0e5a8 nens/postgres:9.5</code></pre>
@@ -105,8 +105,7 @@ $ docker commit -m "Added more restrictive pg_hba.conf." \
                         <h2>VM's vs containers</h2>
                         <h3>5. Docker images hebben geen state.</h3>
                         <ul>
-                            <li>In Docker terminologie: een read-only laag wordt een image genoemd.</li>
-                            <li>Een image verandert nooit.</li>
+                            <li>In Docker terminologie: een read-only laag wordt een image genoemd. Een image verandert nooit.</li>
                             <li>Omdat Docker een Union File System gebruikt, denken de processen dat het hele file system is gemount als read-write.</li>
                             <li>Maar, alle veranderingen komen in de bovenste writeable laag.</li>
                             <li>Daaronder blijven de originele files in het read-only image onaangetast.</li>
@@ -116,7 +115,7 @@ $ docker commit -m "Added more restrictive pg_hba.conf." \
                     <section>
                         <h2>VM's vs containers</h2>
                         <h3>6. VM's zijn hardware-centrisch en containers zijn applicatie-centrisch.</h3>
-                        <p>Stel we hebben een container image van 1 GB. Als we een VM zou wilen gebruiken als alternatief, dan zouden we 1 GB x het aantal VM's dat we willen nodig hebben. Met Docker kunnen we grootste deel van die 1 GB delen. Dus als we 1000 containers met hetzelfde OS hebben heb je maar iets meer dan 1 GB nodig om ze allemaal te runnen.</p> 
+                        <p>Stel we hebben een container image van 1 GB. Als we een VM zou willen gebruiken als alternatief, dan zouden we 1 GB x het aantal VM's dat we willen nodig hebben. Met Docker kunnen we grootste deel van die 1 GB delen. Dus als we 1000 containers met hetzelfde OS hebben heb je maar iets meer dan 1 GB nodig om ze allemaal te runnen.</p> 
                     </section>
 
                 </section>
@@ -127,6 +126,7 @@ $ docker commit -m "Added more restrictive pg_hba.conf." \
                         <li>
                             "Een open platform voor ontwikkelaars en systeembeheerders om gedistribueerde applicaties te bouwen, verschepen en te draaien."
                         </li>
+						<li class="fragment roll-in">Een manier om je applicaties en hun dependencies te isoleren van hun omgeving.</li>
                         <li class="fragment roll-in">
                             Lichtgewicht containers
                         </li>
@@ -237,8 +237,7 @@ $ docker push dockrepo.lizard.net/threedi/subgrid-flow-base
 						<li>&gt; 100.000 Docker images</li>
 					</ul>
 					<pre><code data-trim>
-$ docker run -it --rm python:3.5.1 bash
-root@c48fe9d5dd43:/# python
+$ docker run -it --rm python:3.5.1 python 
 Python 3.5.1 (default, Mar  9 2016, 03:30:07) 
 [GCC 4.9.2] on linux
 Type "help", "copyright", "credits" or "license" for more information.
