@@ -6,5 +6,5 @@ The presentation slides can be seen `here <https://jsmits.github.io/docker-talk>
 
 Notes:
 
-    - `reveal.js <https://github.com/hakimel/reveal.js>`_ is used as the presentation framework
+- `reveal.js <https://github.com/hakimel/reveal.js>`_ is used as the presentation framework
 
